@@ -4,6 +4,7 @@
   "private": true,
   "packageManager": "pnpm@10.0.0",
   "scripts": {
+    "prebuild": "pnpm install --no-frozen-lockfile || true",
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
