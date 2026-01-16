@@ -1,6 +1,7 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 
 let supabaseClient: SupabaseClient | null = null
+let supabaseAdminClient: SupabaseClient | null = null
 
 function getSupabaseClient(): SupabaseClient {
   if (supabaseClient) return supabaseClient
@@ -22,6 +23,30 @@ function getSupabaseClient(): SupabaseClient {
   })
 
   return supabaseClient
+}
+
+/**
+ * Get Supabase admin client with service role key
+ * This client has full access to the database and bypasses RLS
+ */
+export function getSupabaseAdminClient(): SupabaseClient {
+  if (supabaseAdminClient) return supabaseAdminClient
+
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+
+  if (!supabaseUrl || !supabaseServiceKey) {
+    throw new Error('Missing Supabase admin environment variables. Add NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY.')
+  }
+
+  supabaseAdminClient = createClient(supabaseUrl, supabaseServiceKey, {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false,
+    },
+  })
+
+  return supabaseAdminClient
 }
 
 // Lazy initialization - only creates client when first accessed
