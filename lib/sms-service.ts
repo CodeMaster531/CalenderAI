@@ -63,8 +63,8 @@ async function sendViaBlueBubbles(to: string, message: string): Promise<SendSMSR
     ]
 
     const payload = {
-      address: 'Shivamkumartandon1@gmail.com',
-      // address: to, // Recipient phone number or email
+      // address: 'Shivamkumartandon1@gmail.com',
+      address: to, // Recipient phone number or email
       message: message,
     }
 
