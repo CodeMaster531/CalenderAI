@@ -10,6 +10,7 @@ import { TasksView } from "@/components/tasks-view"
 import { FocusModeView } from "@/components/focus-mode-view"
 import { Sidebar } from "@/components/sidebar"
 import { ProfileSettings } from "@/components/profile-settings"
+import { DataBackupView } from "@/components/data-backup-view"
 import { useAuth } from "@/components/auth/auth-provider"
 import { EmailAuthForm } from "@/components/auth/email-auth-form"
 import { Loader2 } from "lucide-react"
@@ -80,6 +81,8 @@ export default function HomePage() {
         return <CalendarView key={refreshKey} userId={userId} />
       case "profile":
         return <ProfileSettings key={refreshKey} />
+      case "backup":
+        return <DataBackupView key={refreshKey} userId={userId} />
       default:
         return <TasksView key={refreshKey} userId={userId} />
     }

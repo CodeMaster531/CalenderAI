@@ -1,6 +1,6 @@
 "use client"
 import { Button } from "@/components/ui/button"
-import { Calendar, Target, Plus, Upload, BarChart3, Mail, Brain, ChevronLeft, ChevronRight, CheckSquare, LogOut, User } from "lucide-react"
+import { Calendar, Target, Plus, Upload, BarChart3, Mail, Brain, ChevronLeft, ChevronRight, CheckSquare, LogOut, User, Database } from "lucide-react"
 import { useState } from "react"
 import { AIQuickCreate } from "./ai-quick-create"
 import { cn } from "@/lib/utils"
@@ -234,6 +234,19 @@ export function Sidebar({ activeView, onViewChange, userId, onRefresh, onSignOut
           >
             <User className={cn("h-4 w-4 mr-3 transition-transform duration-200", activeView === "profile" && "scale-110")} />
             Profile
+          </Button>
+          <Button
+            variant="ghost"
+            className={cn(
+              "w-full justify-start text-sm font-medium transition-all duration-200 rounded-lg",
+              activeView === "backup" 
+                ? "bg-primary/10 text-primary shadow-sm" 
+                : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+            )}
+            onClick={() => onViewChange("backup")}
+          >
+            <Database className={cn("h-4 w-4 mr-3 transition-transform duration-200", activeView === "backup" && "scale-110")} />
+            Data & Backup
           </Button>
         </div>
 
