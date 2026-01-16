@@ -2541,6 +2541,9 @@ packages:
     dependencies:
       fast-deep-equal: ^2.0.1
 
+  parseley@0.12.0:
+    resolution: {integrity: sha512-uLqDm6IQVb6m50a3dIxF66hI8VWr7wFDYUULtHa1ITRh9mwYIXzFpPTkPM66Cm5V0t+bMyeSHgUCGzoXTV96LQ==}
+
   react-remove-scroll@2.7.2:
     resolution: {integrity: sha512-Iqb9NjCCTt6Hf+vOdNIZGdTiH1QSqr27H/Ek9sv/a97gfueI/5h1s3yRi1nngzMUaOOToin5dI1dXKdXiF+u0Q==}
     engines: {node: '>=10'}
@@ -5106,6 +5109,8 @@ snapshots:
     dependencies:
       fast-deep-equal: 2.0.1
       react: 18.3.1
+
+  parseley@0.12.0: {}
 
   selderee@0.11.0:
     dependencies:
